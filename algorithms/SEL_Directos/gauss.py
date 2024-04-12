@@ -1,7 +1,6 @@
-from listfunctions import multiplicatorandrestlist,seguritymatrix
-
-
 def gauss(a: list[list[float]], savemultiplicator: bool = False, pivot: bool = False) -> (list[list[float]], list[int]):
+    if len(a) == 0:
+        return a
     seguritymatrix(a)
 
     result: list[list[float]] = a
@@ -49,3 +48,19 @@ def withoutpivot(lis: list[list[float]], fil: int, colum: int):
             if lis[f][colum] != 0:
                 lis[f], lis[fil] = lis[fil], lis[f]
                 break
+
+
+def multiplicatorandrestlist(a: list[float], b: list[float], ka: float = 1, kb: float = 1) -> list[float]:
+    if len(a) != len(b):
+        Exception("its not posible to rest this if they are the same lenght")
+    c: list[float] = list(range(len(a)))
+    for i in range(len(a)):
+        c[i] = (ka * a[i] - kb * b[i])
+    return c
+
+
+def seguritymatrix(lis: list[list[float]]) -> None:
+    c: int = len(lis[0])
+    for fil in lis:
+        if len(fil) != c:
+            Exception("this not is a matrix")
