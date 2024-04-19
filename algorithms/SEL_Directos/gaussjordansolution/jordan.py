@@ -1,7 +1,7 @@
 from modelacionNumerica.algorithms.SEL_Directos.functionlist import multiplicatorlist, restlists
 
 
-def jordan(a_gauss: list[list[float]]) -> list[list[float]]:
+def jordan(a_gauss: list[list[float]], mantiza: int = 8) -> list[list[float]]:
     if len(a_gauss) == 0 or len(a_gauss[0]) == 0:
         return a_gauss
     result: list[list[float]] = a_gauss.copy()
@@ -16,7 +16,7 @@ def jordan(a_gauss: list[list[float]]) -> list[list[float]]:
                 break
         if result[diag][columpivot] == 0:
             continue
-        result[diag] = multiplicatorlist(result[diag], 1 / result[diag][columpivot])
+        result[diag] = multiplicatorlist(result[diag], round(1 / result[diag][columpivot], mantiza), mantiza=mantiza)
         result[diag][columpivot] = 1
         for fil in range(0, diag):
             result[fil] = restlists(result[fil], multiplicatorlist(result[diag], result[fil][columpivot]))

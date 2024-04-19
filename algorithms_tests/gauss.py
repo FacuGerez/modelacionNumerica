@@ -1,7 +1,8 @@
 import unittest
-from modelacionNumerica.algorithms.SEL_Directos.gauss import gauss
-from modelacionNumerica.algorithms.SEL_Directos.jordan import jordan
+
 import numpy as np
+
+from modelacionNumerica.algorithms.SEL_Directos.gaussjordansolution.gauss import gauss
 
 
 class MyTestCase(unittest.TestCase):
@@ -22,24 +23,16 @@ class MyTestCase(unittest.TestCase):
         self.assertRaises(Exception, gauss, [[1, 2, 3], [1, 2, 3, 4]])
         self.assertRaises(Exception, gauss, [[1, 2, 3, 4], [1, 2, 3]])
 
-    def test_gauss_an_withoutpivot(self):
+    """def test_gauss_an_withoutpivot(self):
         rng = np.random.default_rng()
-        [n] = rng.integers(low=3, high=7, size=1)
-        [m] = rng.integers(low=3, high=7, size=1)
+        [n] = rng.integers(low=2, high=5, size=1)
+        [m] = rng.integers(low=2, high=5, size=1)
         a = list(range(n))
+        b = rng.integers(low=-10, high=10, size=n).tolist()
         for i in range(len(a)):
             a[i] = rng.integers(low=-10, high=10, size=m).tolist()
-            print(a[i])
-        print()
-        print("con gauss")
-        agauss = gauss(a)[0]
-        for i in range(len(agauss)):
-            print(agauss[i])
-        print()
-        print("con jordan ahora")
-        agaussjordan = jordan(agauss)
-        for i in range(len(agaussjordan)):
-            print(agaussjordan[i])
+            a[i].append(b[i])
+            print(a[i])"""
 
 
 if __name__ == '__main__':

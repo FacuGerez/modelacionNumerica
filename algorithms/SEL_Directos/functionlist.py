@@ -1,7 +1,7 @@
-def multiplicatorlist(a: list[float], k: float) -> list[float]:
+def multiplicatorlist(a: list[float], k: float, mantiza: int = 8) -> list[float]:
     result: list[float] = list(range(len(a)))
     for i in range(len(a)):
-        result[i] = a[i] * k
+        result[i] = round(a[i] * k, mantiza)
     return result
 
 
