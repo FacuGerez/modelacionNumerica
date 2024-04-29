@@ -1,6 +1,6 @@
-from modelacionNumerica.algorithms.SEL_Directos.gaussjordansolution.solutionaxb import solutionaxb
-from modelacionNumerica.algorithms.SEL_Directos.matrix_functions import multi, truncvector
-from modelacionNumerica.algorithms.SEL_Directos.functionlist import restlists
+from gaussjordansolution.solutionaxb import solutionaxb
+from algorithms.SEL_Directos.gaussjordansolution.matrix_functions import multi, truncvector
+from algorithms.SEL_Directos.gaussjordansolution.functionlist import restlists
 import math
 
 

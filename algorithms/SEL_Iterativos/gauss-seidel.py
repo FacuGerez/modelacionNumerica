@@ -1,4 +1,4 @@
-from modelacionNumerica.algorithms.SEL_Directos.matrix_functions import seguritymatrix
+from algorithms.SEL_Directos.gaussjordansolution.matrix_functions import seguritymatrix
 
 
 def checkdiagdominant(a: list[list[float]]):

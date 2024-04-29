@@ -1,4 +1,4 @@
-def secante(x: float, f, errormin: float) -> float | None:
+def secante(x: float, f: function[float], errormin: float) -> float | None:
     if f(x) == 0:
         return x
     xold: float = x

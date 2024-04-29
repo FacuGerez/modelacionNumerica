@@ -1,4 +1,4 @@
-from modelacionNumerica.algorithms.SEL_Directos.functionlist import multiplicatorlist, restlists
+from algorithms.SEL_Directos.gaussjordansolution.functionlist import multiplicatorlist, restlists
 
 
 def jordan(a_gauss: list[list[float]], mantiza: int = 8) -> list[list[float]]:

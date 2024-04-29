@@ -1,5 +1,5 @@
-from modelacionNumerica.algorithms.SEL_Directos.gaussjordansolution.gauss import gauss
-from modelacionNumerica.algorithms.SEL_Directos.gaussjordansolution.jordan import jordan
+from gauss import gauss
+from jordan import jordan
 
 
 def solutionaxb(a: list[list[float]], b: list[float], mantiza: int = 8) -> (list[list[float]], list[float]):
