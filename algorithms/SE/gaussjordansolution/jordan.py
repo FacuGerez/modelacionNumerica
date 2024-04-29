@@ -8,7 +8,7 @@ def jordan(A_gauss: np.ndarray,colums:int,fils:int, mantize: int = 8) -> np.ndar
     # Iterate through each row in the matrix
     for i in range(colums):
         # Find the row with the maximum absolute value in the current column
-        if row + 1 == fils:
+        if row == fils:
             break
         if result[row][i] == 0:
             continue

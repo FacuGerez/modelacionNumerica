@@ -9,7 +9,7 @@ def gauss(A: np.ndarray,colums:int,fils:int,mantize:int = 8) -> (np.ndarray,np.a
     for i in range(colums):
         pivot_row: int = row
         # Find the row with the maximum absolute value in the current column
-        if row + 1 == fils:
+        if row == fils:
             break
         for j in range(row + 1, fils):
             if abs(result[j][i]) > abs(result[pivot_row][i]):
