@@ -1,7 +1,8 @@
 import numpy as np
 from .manticelist import manticereformat
+from typing import Tuple
 
-def gauss(A: np.ndarray,colums:int,fils:int,mantize:int = 8) -> (np.ndarray,np.array):
+def gauss(A: np.ndarray,colums:int,fils:int,mantize:int = 8) -> Tuple[np.ndarray,np.array]:
     changes: np.array = np.array(list(range(fils)),dtype=int)
     result: np.ndarray = A.copy()
     row: int = 0

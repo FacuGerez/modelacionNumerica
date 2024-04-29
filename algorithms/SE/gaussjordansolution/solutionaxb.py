@@ -2,9 +2,9 @@ import numpy as np
 from .gauss import gauss
 from .jordan import jordan
 from .manticelist import manticereformat
+from typing import Tuple
 
-
-def solutionaxb(A: np.ndarray, b: np.array, mantize: int = 8) -> (np.ndarray,np.array,np.array):
+def solutionaxb(A: np.ndarray, b: np.array, mantize: int = 8) -> Tuple[np.ndarray, np.array, np.array]:
     if len(A) != len(b) or len(A) == 0 or len(A[0]) == 0 or len(b) == 0:
         raise Exception("this not have solution")
     if A.dtype != float:
