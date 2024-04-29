@@ -1,23 +1,25 @@
-from algorithms.SEL_Directos.gaussjordansolution.functionlist import multiplicatorlist, restlists
+import numpy as np
+from manticelist import manticereformat
 
 
-def jordan(a_gauss: list[list[float]], mantiza: int = 8) -> list[list[float]]:
-    if len(a_gauss) == 0 or len(a_gauss[0]) == 0:
-        return a_gauss
-    result: list[list[float]] = a_gauss.copy()
-    c: int = len(a_gauss[0])
-    f: int = len(a_gauss)
-
-    for diag in range(min(f, c) - 1, -1, -1):
-        columpivot: int = diag
-        for col in range(diag, c):
-            if result[diag][col] != 0:
-                columpivot = col
-                break
-        if result[diag][columpivot] == 0:
+def jordan(A_gauss: np.ndarray,colums:int,fils:int, mantize: int = 8) -> np.ndarray:
+    result: np.ndarray = A_gauss.copy()
+    row: int = 0
+    # Iterate through each row in the matrix
+    for i in range(colums):
+        # Find the row with the maximum absolute value in the current column
+        if row + 1 == fils:
+            break
+        if result[row][i] == 0:
             continue
-        result[diag] = multiplicatorlist(result[diag], round(1 / result[diag][columpivot], mantiza), mantiza=mantiza)
-        result[diag][columpivot] = 1
-        for fil in range(0, diag):
-            result[fil] = restlists(result[fil], multiplicatorlist(result[diag], result[fil][columpivot]))
+
+        factor = 1 / result[row][i]
+        result[row] *= factor
+        result[row][i] = 1
+        manticereformat(result[row], len(result[row]), mantize)
+        for j in range(row):
+            factor = result[j][i]
+            result[j] -= factor * result[row]
+            manticereformat(result[j], len(result[j]), mantize)
+        row += 1
     return result

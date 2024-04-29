@@ -1,6 +1,7 @@
 import numpy as np
+from manticelist import manticereformat
 
-def gauss(A: np.ndarray,colums:int,fils:int) -> np.ndarray:
+def gauss(A: np.ndarray,colums:int,fils:int,mantize:int = 8) -> np.ndarray:
     result: np.ndarray = A.copy()
     row: int = 0
     # Iterate through each row in the matrix
@@ -22,5 +23,6 @@ def gauss(A: np.ndarray,colums:int,fils:int) -> np.ndarray:
             factor = result[j][i] / result[row][i]
             result[j] -= factor * result[row]
             result[j][i] = 0
+            manticereformat(result[j], len(result[j]), mantize)
         row += 1
     return result
