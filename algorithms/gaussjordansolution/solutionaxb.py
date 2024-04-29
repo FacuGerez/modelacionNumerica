@@ -4,7 +4,7 @@ import numpy as np
 from manticelist import manticereformat
 
 
-def solutionaxb(A: np.ndarray, b: np.array, mantize: int = 8) -> (np.ndarray, np.array):
+def solutionaxb(A: np.ndarray, b: np.array, mantize: int = 8) -> np.array:
     if len(A) != len(b) or len(A) == 0 or len(A[0]) == 0 or len(b) == 0:
         raise Exception("this not have solution")
     if A.dtype != float:
@@ -21,4 +21,4 @@ def solutionaxb(A: np.ndarray, b: np.array, mantize: int = 8) -> (np.ndarray, np
         if sum_val == jordan_result[i][-1]:
             raise Exception("this not have solution")
         xp[i] = jordan_result[i][-1]
-    return jordan_result, xp
+    return xp
