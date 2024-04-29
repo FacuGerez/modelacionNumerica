@@ -1,7 +1,8 @@
 import numpy as np
-from manticelist import manticereformat
+from .manticelist import manticereformat
 
-def gauss(A: np.ndarray,colums:int,fils:int,mantize:int = 8) -> np.ndarray:
+def gauss(A: np.ndarray,colums:int,fils:int,mantize:int = 8) -> (np.ndarray,np.array):
+    changes: np.array = np.array(list(range(fils)),dtype=int)
     result: np.ndarray = A.copy()
     row: int = 0
     # Iterate through each row in the matrix
@@ -16,8 +17,12 @@ def gauss(A: np.ndarray,colums:int,fils:int,mantize:int = 8) -> np.ndarray:
 
         if pivot_row == row and result[row][i] == 0:
             continue
+        # Swap the current row with the row having the maximum absolute value
+
         if pivot_row != row:
-            result[[row, pivot_row]] = result[[pivot_row, row]] # Swap the current row with the row having the maximum absolute value
+            result[[row, pivot_row]] = result[[pivot_row, row]]
+            changes[[row, pivot_row]] = changes[[pivot_row, row]]
+
         # Perform Gaussian elimination on the matrix
         for j in range(row + 1, fils):
             factor = result[j][i] / result[row][i]
@@ -25,4 +30,4 @@ def gauss(A: np.ndarray,colums:int,fils:int,mantize:int = 8) -> np.ndarray:
             result[j][i] = 0
             manticereformat(result[j], len(result[j]), mantize)
         row += 1
-    return result
+    return result,changes
