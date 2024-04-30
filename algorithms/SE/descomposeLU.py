@@ -15,4 +15,4 @@ def descompose(A: np.ndarray, b: np.array, mantize: int = 8) -> Tuple[np.ndarray
     print(gauss_result)
 
 
-descompose(np.array([[1,2,3],[4,5,6],[7,8,9]]),np.array([1,2,3]))
+descompose(np.array([[7,2,3],[7,5,4],[7,8,9]]),np.array([1,2,8]))
