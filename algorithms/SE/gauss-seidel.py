@@ -12,7 +12,7 @@ def gauss_seidel(A: np.ndarray, b: np.array, seed:np.array,corte:int) -> np.arra
     :param seed: vector of N
     :return: vector of N
     """
-    if len(A) != len(A[0]) or len(A) != len(b) or len(A) != len(seed):
+    if len(A) == 0 or len(A) != len(A[0]) or len(A) != len(b) or len(A) != len(seed):
         raise Exception("The matrix and vector do not have the same size")
     if A.dtype != float:A:np.ndarray = A.astype(float)
     if b.dtype != float:b:np.array = b.astype(float)
@@ -36,9 +36,6 @@ def gauss_seidel(A: np.ndarray, b: np.array, seed:np.array,corte:int) -> np.arra
 
 
 def dominantdiag(A: np.ndarray, b: np.array) -> Tuple[np.ndarray, np.array]:
-    if len(A) != len(A[0]):
-        raise Exception("The matrix is not square")
-
     maxs = list([float('-inf') for i in range(len(A))])
     for i in range(len(A)):
 
