@@ -1,7 +1,5 @@
 import numpy as np
-from gauss import gauss
-from jordan import jordan
-from manticelist import manticereformat
+from gaussjordansolution.gauss import gauss
 from typing import Tuple
 
 def descompose(A: np.ndarray, b: np.array, mantize: int = 8) -> Tuple[np.ndarray, np.ndarray]:

@@ -1,6 +1,6 @@
 import numpy as np
 from math import log10
-from gaussjordansolution.solutionaxb import solutionaxb
+from solutionaxb import solutionaxb
 
 
 def ref_iterative(A: np.ndarray, b: np.array, digitsignificative:int = 5, mantize: int = 4) -> np.array:
@@ -23,8 +23,8 @@ def ref_iterative(A: np.ndarray, b: np.array, digitsignificative:int = 5, mantiz
         xp += lamdax
         counter += 1
     return xp
-    
-    
+
+
 
 # Example of use
 """

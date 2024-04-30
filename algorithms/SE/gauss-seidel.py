@@ -1,6 +1,6 @@
 import numpy as np
 from math import log10
-from gaussjordansolution.solutionaxb import solutionaxb
+from solutionaxb import solutionaxb
 from typing import Tuple
 
 
@@ -66,4 +66,3 @@ print(xp)
 print()
 print(np.dot(np.array([[1, 10, 4], [10, 2, 6], [2, -7, -10]]), xp))
 """
-

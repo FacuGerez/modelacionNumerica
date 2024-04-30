@@ -1,5 +1,5 @@
 import numpy as np
-from manticelist import manticereformat
+from gaussjordansolution.manticelist import manticereformat
 from typing import Tuple
 
 def gauss(A: np.ndarray,colums:int,fils:int,mantize:int = 8,LU:bool=False) -> Tuple[np.ndarray,np.array]:

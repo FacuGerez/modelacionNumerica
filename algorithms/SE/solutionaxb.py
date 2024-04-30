@@ -1,7 +1,6 @@
 import numpy as np
-from gauss import gauss
-from jordan import jordan
-from manticelist import manticereformat
+from gaussjordansolution.gauss import gauss
+from gaussjordansolution.jordan import jordan
 from typing import Tuple
 
 def solutionaxb(A: np.ndarray, b: np.array, mantize: int = 8) -> Tuple[np.ndarray, np.array, np.array]:

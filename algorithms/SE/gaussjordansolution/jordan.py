@@ -1,5 +1,5 @@
 import numpy as np
-from manticelist import manticereformat
+from gaussjordansolution.manticelist import manticereformat
 
 
 def jordan(A_gauss: np.ndarray,colums:int,fils:int, mantize: int = 8) -> np.ndarray:
