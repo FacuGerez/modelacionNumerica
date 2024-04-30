@@ -1,8 +1,8 @@
 import numpy as np
-from .manticelist import manticereformat
+from manticelist import manticereformat
 from typing import Tuple
 
-def gauss(A: np.ndarray,colums:int,fils:int,mantize:int = 8) -> Tuple[np.ndarray,np.array]:
+def gauss(A: np.ndarray,colums:int,fils:int,mantize:int = 8,LU:bool=False) -> Tuple[np.ndarray,np.array]:
     changes: np.array = np.array(list(range(fils)),dtype=int)
     result: np.ndarray = A.copy()
     row: int = 0
@@ -27,8 +27,13 @@ def gauss(A: np.ndarray,colums:int,fils:int,mantize:int = 8) -> Tuple[np.ndarray
         # Perform Gaussian elimination on the matrix
         for j in range(row + 1, fils):
             factor = result[j][i] / result[row][i]
-            result[j] -= factor * result[row]
-            result[j][i] = 0
+            if LU:
+                for k in range(i, colums):
+                    result[j][k] -= factor * result[row][k]
+                result[j][i] = factor
+            else:
+                result[j] -= factor * result[row]
+                result[j][i] = 0
             manticereformat(result[j], len(result[j]), mantize)
         row += 1
     return result,changes
