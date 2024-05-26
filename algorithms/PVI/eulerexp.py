@@ -6,7 +6,7 @@ def euler(times:list[float], y0:float, t0:float, f:callable, h:float = None)->di
         sorted_times = [t0] + sorted(times)
         for t in range(0, len(sorted_times)):
             y += f(sorted_times[t], y)*(sorted_times[t+1]-sorted_times[t] if t < len(sorted_times)-1 else 1)
-            result[t] = y
+            result[sorted_times[t]] = y
     else:
         maxt = max(times)
         iterations = int((maxt-t0)/h) + 1
