@@ -1,4 +1,4 @@
-def euler(times:list[float], y0:float, f:callable[float,float], h:float = None, t0:float = 0)->dict:
+def euler(times:list[float], y0:float, f:callable, h:float = None, t0:float = 0)->dict:
     """precondición: times.keys() != [] and t0<=min(times.keys()) and y0 es el valor de la función en t0"""
     result:dict = {}
     y = y0
@@ -9,7 +9,9 @@ def euler(times:list[float], y0:float, f:callable[float,float], h:float = None, 
             result[t] = y
     else:
         maxt = max(times)
-        for t in range(t0, maxt, h):
+        iterations = int((maxt-t0)/h) + 1
+        for i in range(0, iterations):
+            t = t0+h*i
             y += f(t, y)*h
             if t in times:
                 result[t] = y
