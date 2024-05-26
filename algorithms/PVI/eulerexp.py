@@ -1,4 +1,4 @@
-def euler(times:list[float], y0:float, f:callable, h:float = None, t0:float = 0)->dict:
+def euler(times:list[float], y0:float, t0:float, f:callable, h:float = None)->dict:
     """precondición: times.keys() != [] and t0<=min(times.keys()) and y0 es el valor de la función en t0"""
     result:dict = {}
     y = y0
