@@ -1,4 +1,4 @@
-from algorithms.PVI.eulerexp import euler
+from algorithms.PVI.euler import euler
 from peticionarconpadron import peticionar_const
 import ecuaciones
 
