@@ -6,7 +6,7 @@ from peticionarconpadron import peticionar_const
 def main():
     #-----------------------Constantes--------------------------------
     cons:dict[str,float] = peticionar_const()
-    tiempo = list(cons["I"].keys())
+    tiempo = list(cons["I"].keys()) # [5min,10min,15min,30min,1h,3h,6h,12h,24h,72h]
 
     #-----------------------Ecuaciones--------------------------------
     Qent = lambda C,t: C*cons["I"][t]*cons["Aterr"]
