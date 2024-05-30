@@ -16,7 +16,8 @@ def main():
 
     #-----------------------A1--------------------------------
     """A1 = euler(0,0,lambda t,y: Qent(1,1),1/60,1)
-    print(A1[-1])"""
+    print(A1[-1])
+    """
 
     #-----------------------A2--------------------------------
     tk = tiempo[3]
@@ -25,10 +26,10 @@ def main():
     NewV = 0
     NewC = cons["C0"]
     print("i={0}/// t={1} /// V={2} /// C={3}".format(i,0,NewV,NewC))
-    while NewV >= 0 and i >= 0:
-        t = h*i
-        NewV = _euler_Exp(NewV, t, lambda _,y: (Qent(NewC,tk)- Qsal(y)) if t<tk else (0 - Qsal(y)), h)
-        NewC = _euler_Exp(NewC, t, lambda _,y: C(NewV,y), h)
+    while NewV >= 0 and i >= 0: #corta la iteracion cuando NewV es menor a 0 osea q se vacio
+        t = h*i # Aca se calcula el tiempo desde t=0 hasta t= 0+h*i donde h avanza de a 1 minuto
+        NewV = _euler_Exp(NewV, t, lambda _,y: (Qent(NewC,tk)- Qsal(y)) if t<tk else (0 - Qsal(y)), h) # Aca se hace el euler paso a paso de la ecuacion 1
+        NewC = _euler_Exp(NewC, t, lambda _,y: C(NewV,y), h) # Aca se hace el euler paso a paso de la ecuacion 6
         i+=1
         print("i={0} /// t={1} /// V={2} /// C={3}".format(i,t+h,NewV,NewC))
 
