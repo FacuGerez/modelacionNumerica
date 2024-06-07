@@ -82,7 +82,7 @@ def main():
             next = input("Press Enter to continue...")"""
 
         #-----------------------C1--------------------------------
-        
+
         tk = tiempo[4] # 1h
         hrunge = 1/60
         heuler = 1/60
@@ -98,7 +98,7 @@ def main():
                             _runge2)
 
         archivo.write(f"\nC1 with tk = {tk}h\n")
-        archivo.write(f"\nEuler and h= {heuler}\n")
+        archivo.write(f"Euler and h= {heuler}\n")
         tabulado = tabulate(resultC1Euler,headers=["Tiempo", "Volumen", "C"],tablefmt='grid',stralign='center', numalign= 'center')
         archivo.write(tabulado)
         """print()
