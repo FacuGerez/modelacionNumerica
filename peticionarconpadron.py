@@ -2,7 +2,7 @@ def peticionar_const():
     """Pide al usuario las constantes necesarias para el programa"""
     NP = float(input("Ingrese el nro de padron: "))
     constantes_necesarias:dict[str,float] = {}
-    constantes_necesarias["Aterr"] = (17.32 * (NP/3000))/10000
+    constantes_necesarias["Aterr"] = (17.32 * (NP/3000))
     constantes_necesarias["Asot"] = 8.66 * 8.66
     constantes_necesarias["Qmax"] = 8
     constantes_necesarias["Hmax"] = 4
@@ -22,17 +22,6 @@ def peticionar_const():
                                   24:10.9, #24 = 24h
                                   72:5.2 #72 = 72h
                                   }
-    """constantes_necesarias["I"] = {1/12:2414, #1/12 = 5min         Prueba con estas?
-                                  1/6:1907, #1/6 = 10min
-                                  1/4:1626, #1/4 = 15min
-                                  1/2:1196, #1/2 = 30min
-                                  1:850, #1 = 1h
-                                  3:417, #3 = 3h
-                                  6:264, #6 = 6h
-                                  12:167, #12 = 12h
-                                  24:109, #24 = 24h
-                                  72:52 #72 = 72h
-                                  }"""
     constantes_necesarias["V0"] = 0
     constantes_necesarias["Vsot"] = constantes_necesarias["Hs"] * constantes_necesarias["Asot"]
     return constantes_necesarias

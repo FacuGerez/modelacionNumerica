@@ -13,7 +13,7 @@ def main():
 
     #-----------------------Ecuaciones--------------------------------
 
-    Qent = lambda C,t: C*cons["I"][t]*cons["Aterr"]
+    Qent = lambda C,t: C*cons["I"][t]*cons["Aterr"]* (1/1000)
     H = lambda V: cons["Hs"] - (V/cons["Asot"]) if (cons["Hs"] - (V/cons["Asot"])) > cons["Hmin"] and (cons["Hs"] - (V/cons["Asot"])) < cons["Hmax"] else cons["Hmax"] if (cons["Hs"] - (V/cons["Asot"])) > cons["Hmax"] else cons["Hmin"]
     Qsal = lambda Qmax,V: Qmax * math.sqrt((cons["Hmax"] - H(V))/(cons["Hmax"]-cons["Hmin"]))
     V = lambda C,t,V: Qent(C,t) - Qsal(V)
@@ -49,7 +49,7 @@ def main():
         #-----------------------A2--------------------------------
 
         for tk in tiempo:# [5min,10min,15min,30min,1h,3h,6h,12h,24h,72h]
-            h = (1/60) * tk #if tk > 1 else 1)
+            h = (1/60) * (tk if tk > 1 else 1)
             resultA2 = modelar(lambda C,t,newV: (Qent(C,tk)- Qsal(cons["Qmax"],newV)) if t<tk else (0 - Qsal(cons["Qmax"],newV)),
                             lambda V,newC: C(V,newC),
                             h,
@@ -65,7 +65,7 @@ def main():
         #-----------------------B1--------------------------------
 
         for tk in tiempo:# [5min,10min,15min,30min,1h,3h,6h,12h,24h,72h]
-            h = 1/60 * tk #if tk > 1 else 1)
+            h = 1/60 * (tk if tk > 1 else 1)
             NewQmax = 15.0463125 #aproximadamente
             BQsal = lambda V: Qsal(NewQmax, V)
             resultB = modelar(lambda C,t,newV: (Qent(C,tk)- BQsal(newV)) if t<tk else (0 - BQsal(newV)),
