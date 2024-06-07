@@ -11,7 +11,7 @@ def peticionar_const():
     constantes_necesarias["Csat"] = 0.90
     constantes_necesarias["C0"] = 0.60
     constantes_necesarias["tk"] = (1 - NP/140000)
-    constantes_necesarias["I"] = {1/12:241.4, #1/12 = 5min
+    """constantes_necesarias["I"] = {1/12:241.4, #1/12 = 5min     Constantes q nos dan
                                   1/6:190.7, #1/6 = 10min
                                   1/4:162.6, #1/4 = 15min
                                   1/2:119.6, #1/2 = 30min
@@ -21,6 +21,17 @@ def peticionar_const():
                                   12:16.7, #12 = 12h
                                   24:10.9, #24 = 24h
                                   72:5.2 #72 = 72h
+                                  }"""
+    constantes_necesarias["I"] = {1/12:2414, #1/12 = 5min         Prueba con estas?
+                                  1/6:1907, #1/6 = 10min
+                                  1/4:1626, #1/4 = 15min
+                                  1/2:1196, #1/2 = 30min
+                                  1:850, #1 = 1h
+                                  3:417, #3 = 3h
+                                  6:264, #6 = 6h
+                                  12:167, #12 = 12h
+                                  24:109, #24 = 24h
+                                  72:52 #72 = 72h
                                   }
     constantes_necesarias["V0"] = 0
     constantes_necesarias["Vsot"] = constantes_necesarias["Hs"] * constantes_necesarias["Asot"]
