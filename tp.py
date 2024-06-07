@@ -49,12 +49,12 @@ def main():
         #-----------------------A2--------------------------------
 
         for tk in tiempo:# [5min,10min,15min,30min,1h,3h,6h,12h,24h,72h]
-            h = (1/60) * (tk if tk > 1 else 1)
+            h = (1/60) * tk #if tk > 1 else 1)
             resultA2 = modelar(lambda C,t,newV: (Qent(C,tk)- Qsal(cons["Qmax"],newV)) if t<tk else (0 - Qsal(cons["Qmax"],newV)),
                             lambda V,newC: C(V,newC),
                             h,
                             _euler_Exp)
-            archivo.write(f"\nA2 with tk = {tk}h and h= {h} \n")
+            archivo.write(f"\n\nA2) with tk = {tk}h and h= {h} \n")
             tabulado = tabulate(resultA2,headers=["Tiempo", "Volumen", "C"],tablefmt='grid',stralign='center', numalign= 'center')
             archivo.write(tabulado)
             """print()
@@ -65,7 +65,7 @@ def main():
         #-----------------------B1--------------------------------
 
         for tk in tiempo:# [5min,10min,15min,30min,1h,3h,6h,12h,24h,72h]
-            h = 1/60 * (tk if tk > 1 else 1)
+            h = 1/60 * tk #if tk > 1 else 1)
             NewQmax = 15.0463125 #aproximadamente
             BQsal = lambda V: Qsal(NewQmax, V)
             resultB = modelar(lambda C,t,newV: (Qent(C,tk)- BQsal(newV)) if t<tk else (0 - BQsal(newV)),
@@ -73,7 +73,7 @@ def main():
                             h,
                             _euler_Exp)
 
-            archivo.write(f"\nB1 with tk = {tk}h and h= {h}\n")
+            archivo.write(f"\n\nB1) with tk = {tk}h and h= {h}\n")
             tabulado = tabulate(resultB,headers=["Tiempo", "Volumen", "C"],tablefmt='grid',stralign='center', numalign= 'center')
             archivo.write(tabulado)
             """print()
@@ -97,7 +97,7 @@ def main():
                             hrunge,
                             _runge2)
 
-        archivo.write(f"\nC1 with tk = {tk}h\n")
+        archivo.write(f"\n\nC1) with tk = {tk}h\n")
         archivo.write(f"Euler and h= {heuler}\n")
         tabulado = tabulate(resultC1Euler,headers=["Tiempo", "Volumen", "C"],tablefmt='grid',stralign='center', numalign= 'center')
         archivo.write(tabulado)
