@@ -91,29 +91,64 @@ def main():
 
         tk = tiempo[4] # 1h
         hrunge = 1/60
-        heuler = 1/60
+        heuler1 = 5/60
+        heuler2 = 10/60
         CQsal = lambda V: Qsal(NewQmax, V)
-        resultC1Euler = modelar(lambda C,t,newV: (Qent(C,tk)- CQsal(newV)) if t<tk else (0 - CQsal(newV)),
+        resultC1Euler1 = modelar(lambda C,t,newV: (Qent(C,tk)- CQsal(newV)) if t<tk else (0 - CQsal(newV)),
                             lambda V,newC: C(V,newC),
-                            heuler,
+                            heuler1,
+                            _euler_Exp)
+        resultC1Euler2 = modelar(lambda C,t,newV: (Qent(C,tk)- CQsal(newV)) if t<tk else (0 - CQsal(newV)),
+                            lambda V,newC: C(V,newC),
+                            heuler2,
                             _euler_Exp)
         resultC1Runge = modelar(lambda C,t,newV: (Qent(C,tk)- CQsal(newV)) if t<tk else (0 - CQsal(newV)),
                             lambda V,newC: C(V,newC),
                             hrunge,
                             _runge2)
 
+
+        for i in range(len(resultC1Euler1)):
+            resultC1Euler1[i].pop(3)
+        for i in range(len(resultC1Euler2)):
+            resultC1Euler2[i].pop(3)
+        for i in range(len(resultC1Runge)):
+            resultC1Runge[i].pop(0)
+            resultC1Runge[i].pop(2)
+
+        for i in range(len(resultC1Euler1)):
+            if i*5 >= len(resultC1Runge):
+                resultC1Euler1[i] += [0,0,0,0]
+                break
+            resultC1Euler1[i] += resultC1Runge[i*5] + [abs(resultC1Euler1[i][1]-resultC1Runge[i*5][0]),abs(resultC1Euler1[i][2]-resultC1Runge[i*5][1])]
+        for i in range(len(resultC1Euler2)):
+            if i*10 >= len(resultC1Runge):
+                resultC1Euler2[i] += [0,0,0,0]
+                break
+            resultC1Euler2[i] += resultC1Runge[i*10] + [abs(resultC1Euler2[i][1]-resultC1Runge[i*10][0]),abs(resultC1Euler2[i][2]-resultC1Runge[i*10][1])]
+
+        archivo.write(f"\n\nC1) with tk = {tk}h\n")
+        archivo.write(f"First Euler and h={heuler1}\n")
+        tabulado = tabulate(resultC1Euler1,headers=["Tiempo", "Vol_Eu", "C_Eu", "Vol_Run", "C_Run", "Dif_Vol", "Dif_C"],tablefmt='grid',stralign='center', numalign= 'center')
+        archivo.write(tabulado)
+        archivo.write(f"\nSecond Euler and h={heuler2}\n")
+        tabulado = tabulate(resultC1Euler2,headers=["Tiempo", "Vol_Eu", "C_Eu", "Vol_Run", "C_Run", "Dif_Vol", "Dif_C"],tablefmt='grid',stralign='center', numalign= 'center')
+        archivo.write(tabulado)
+
+
+        """
         archivo.write(f"\n\nC1) with tk = {tk}h\n")
         archivo.write(f"Euler and h= {heuler}\n")
         tabulado = tabulate(resultC1Euler,headers=["Tiempo", "Volumen", "C", "H"],tablefmt='grid',stralign='center', numalign= 'center')
         archivo.write(tabulado)
-        """print()
+        print()
         print("C1 with tk = ",tk,"h")
         print("Euler and h= ",heuler)
-        print(tabulado)"""
+        print(tabulado)
         archivo.write(f"\nRunge and h= {hrunge}\n")
         tabulado = tabulate(resultC1Runge,headers=["Tiempo", "Volumen", "C", "H"],tablefmt='grid',stralign='center', numalign= 'center')
         archivo.write(tabulado)
-        """print("Runge and h= ",hrunge)
+        print("Runge and h= ",hrunge)
         print(tabulado)"""
 
 
