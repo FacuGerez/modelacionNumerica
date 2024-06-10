@@ -231,7 +231,8 @@ Resultado: tarda $0$ $h$ en vaciarse, nunca se llena.
 
 ![Modelo 72 horas](./assets/Modelo%2072%20horas.png)
 
-
+Conclusiones
+En conclusion, encontramos que el tiempo que tarda en vaciarse el sotano varia considerablemente segun la duracion e intensidad de la lluvia. Cuando la lluvia es corta pero intensa, el sotano se llena rapidamente pero tambien se vacia rapido cuando para la lluvia. Por otro lado, si la lluvia es prolongada pero suave, el sotano no llega a llenarse por completo, pero toma mucho mas tiempo para vaciarse. 
 
 ### Punto B
 Ahora, nos encontramos ante el desafío de redimensionar la bomba adoptando un nuevo valor para la variable $Q_{max}$ para que la altura del agua sobre el piso del sótano jamás exceda los $0,25m$ para ninguna de las precipitaciones presentes en la tabla brindada. 
@@ -319,3 +320,6 @@ y $h = 30 min$
 ![Punto C h=30min](./assets/Modelo%2060%20min,%20con%20h%20=%2030%20min%20Punto%20C.png)
 
 Corroboramos que Euler es de orden 1...
+
+Comparamos los resultados obtenidos usando diferentes tamanos de paso h y analizamos el error en relacion con la solucion obtenida con el metodo de runge-kutta de orden 2, considerado como la solucion "exacta". Los resultados mostraron que el error global disminuye en proporcion al tamano del paso, confirmando que el metodo de Euler es efectivamente de primer orden.
+Ademas, se puede observar que las diferencias entre las soluciones de Euler y RK2 son pequenas para pasos de tiempo pequenos, y aumentan significativamente al incrementar el tamano del paso, lo cual es consistente con el comportamiento esperado de un primer orden.
