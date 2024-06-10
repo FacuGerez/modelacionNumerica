@@ -4,9 +4,9 @@ Resolución de Ecuaciones Diferenciales Ordinarias <br>
 “Dimensionamiento de Bomba de Desagote” <br>
 
 Alumnos: <br>
-GEREZ, FACUNDO NAHUEL <br>
+GEREZ, FACUNDO NAHUEL 109429 <br> 
 CERROTTI, BELÉN CAMILA 109566 <br>
-HSIEH, CINDY TERESA <br>
+HSIEH, CINDY TERESA 108051<br> 
 
 En el presente repositorio puede encontrarse todo el código utilizado para la resolución del trabajo práctico junto con el informe con el desarrollo, las justificaciones y las conclusiones necesarias para el desarrollo del mismo.
 
