@@ -231,8 +231,7 @@ Resultado: tarda $0$ $h$ en vaciarse, nunca se llena.
 
 ![Modelo 72 horas](./assets/Modelo%2072%20horas.png)
 
-Conclusiones
-En conclusion, encontramos que el tiempo que tarda en vaciarse el sotano varia considerablemente segun la duracion e intensidad de la lluvia. Cuando la lluvia es corta pero intensa, el sotano se llena rapidamente pero tambien se vacia rapido cuando para la lluvia. Por otro lado, si la lluvia es prolongada pero suave, el sotano no llega a llenarse por completo, pero toma mucho mas tiempo para vaciarse. 
+En conclusión, encontramos que el tiempo que tarda en vaciarse el sótano varía considerablemente segun la duración e intensidad de la lluvia. Cuando la lluvia es corta pero intensa, el sótano se llena rápidamente pero también se vacía rápido cuando para la lluvia. Por otro lado, si la lluvia es prolongada pero suave, el sótano no llega a llenarse por completo, pero toma mucho más tiempo para vaciarse. 
 
 ### Punto B
 Ahora, nos encontramos ante el desafío de redimensionar la bomba adoptando un nuevo valor para la variable $Q_{max}$ para que la altura del agua sobre el piso del sótano jamás exceda los $0,25m$ para ninguna de las precipitaciones presentes en la tabla brindada. 
@@ -323,3 +322,27 @@ Corroboramos que Euler es de orden 1...
 
 Comparamos los resultados obtenidos usando diferentes tamanos de paso h y analizamos el error en relacion con la solucion obtenida con el metodo de runge-kutta de orden 2, considerado como la solucion "exacta". Los resultados mostraron que el error global disminuye en proporcion al tamano del paso, confirmando que el metodo de Euler es efectivamente de primer orden.
 Ademas, se puede observar que las diferencias entre las soluciones de Euler y RK2 son pequenas para pasos de tiempo pequenos, y aumentan significativamente al incrementar el tamano del paso, lo cual es consistente con el comportamiento esperado de un primer orden.
+
+### Punto D
+
+#### Conclusiones <br>
+
+En este trabajo práctico se abordó la resolución numérica de un problema físico de gran relevancia: el dimensionamiento de una bomba de desagote en un edificio con sótano, afectado por lluvias intensas. A continuación, se detallan las conclusiones principales derivadas del análisis y la modelación realizados: <br>
+
+1. **Relación Problema Físico-Problema Numérico**: <br>
+   El problema físico consiste en gestionar el agua de lluvia que ingresa a un sótano durante una inundación. Este fenómeno se modeló mediante ecuaciones diferenciales ordinarias que describen la conservación de masa y la variación del coeficiente de infiltración. <br>
+   La transformación del problema físico a un problema numérico permitió utilizar métodos de resolución como Euler y Runge-Kutta, facilitando la simulación y análisis del sistema en distintos escenarios de precipitación. <br>
+
+2. **Tipos de Errores en la Resolución Numérica**: <br>
+   **Error de Truncamiento**: En el método de Euler, este error es del orden de $\Delta t$, mientras que en Runge-Kutta de segundo orden, el error es del orden de $(\Delta t)^2$. Esto se evidenció en las diferencias observadas al comparar los resultados de Euler con los de Runge-Kutta. <br>
+   **Error de Redondeo**: Proviene de la precisión finita de las computadoras. Al tener una mantisa finita y limitada, los resultados que utilizan los programas empleados para desarrollar este trabajo práctico no son exactos. <br>
+
+3. **Importancia y Efecto de los Errores**: <br>
+   Los errores numéricos pueden influir en la precisión del cálculo del caudal necesario y, por ende, en la selección de la bomba adecuada. Un error significativo podría llevar a subdimensionar o sobredimensionar la bomba.<br>
+   La diferencia entre las soluciones obtenidas con distintos métodos numéricos demuestra la necesidad de seleccionar adecuadamente el método y el paso de tiempo según la precisión requerida.<br>
+
+4. **Estabilidad y Consistencia**:<br>
+   **Estabilidad**: Ambos métodos utilizados son condicionalmente estables y dependen del tamaño del paso de tiempo $\Delta t$ elegido. Un $\Delta t$ demasiado grande puede llevar a soluciones inestables. <br>
+   **Consistencia**: Ambos métodos son consistentes, pero el orden de consistencia varía. Runge-Kutta de segundo orden es más preciso para el mismo paso de tiempo en comparación con Euler.<br>
+
+En resumen, el trabajo realizado demuestra la importancia de un enfoque numérico adecuado para resolver problemas físicos complejos. La elección de los métodos y parámetros numéricos a utilizar es esencial para obtener soluciones precisas y eficientes.
