@@ -329,7 +329,15 @@ y $h = 30 min$
 
 Al comparar los resultados obtenidos utilizando diferentes tamaños de paso $h$, hemos examinado el error en relación con la solución obtenida mediante el método de Runge-Kutta de segundo orden, considerado como la solución "exacta". Los resultados destacan una disminución proporcional y lineal del error global con respecto al tamaño del paso, lo que confirma la naturaleza de primer orden del método de Euler. <br>
 
-Además, es notable que las disparidades entre las soluciones de Euler y RK2 son insignificantes para pasos de tiempo reducidos, pero aumentan significativamente al incrementar el tamaño del paso. Este comportamiento es coherente con las expectativas de un método de primer orden. <br>
+Cuando comparamos los errores relativos con un paso de tiempo $h = 10 min$ vamos que son linealmente proporcionales a los obtenidos cuando $h = 30 min$. Es decir, se cumple que teniendo $\epsilon_{1}$ y $\epsilon_{2}$ para pasos de tiempo $\Delta t_{1}$ y $\Delta t_{2} = \Delta t_{1} / 3 $, encontramos que:
+
+$\frac{\epsilon_{2}}{\epsilon_{1}} \approx \frac{\Delta t_2}{\Delta t_1} = \frac{\Delta t_{1} / 3}{\Delta t_1} =  \frac{1}{3}$
+
+Como esto se cumple y el error se reduce aproximadamente a un tercio cuando reducimos el paso de tiempo a un tercio, se confirma que el método de Euler es de orden 1. Lo mismo ocurre cuando comparamos $h = 1 min$ con $h = 30 min$, solo que esta vez:
+
+$\frac{\epsilon_{2}}{\epsilon_{1}} \approx \frac{\Delta t_2}{\Delta t_1} = \frac{\Delta t_{1} / 30}{\Delta t_1} =  \frac{1}{30}$
+
+Además, es notable que las disparidades entre las soluciones de Euler y RK2 son insignificantes para pasos de tiempo reducidos, pero aumentan significativamente al incrementar el tamaño del paso. Este comportamiento también es coherente con las expectativas de un método de primer orden. <br>
 
 ### Punto D
 
