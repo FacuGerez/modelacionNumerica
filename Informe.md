@@ -231,7 +231,16 @@ Resultado: tarda $0$ $h$ en vaciarse, nunca se llena.
 
 ![Modelo 72 horas](./assets/Modelo%2072%20horas.png)
 
-En conclusión, encontramos que el tiempo que tarda en vaciarse el sótano varía considerablemente segun la duración e intensidad de la lluvia. Cuando la lluvia es corta pero intensa, el sótano se llena rápidamente pero también se vacía rápido cuando para la lluvia. Por otro lado, si la lluvia es prolongada pero suave, el sótano no llega a llenarse por completo, pero toma mucho más tiempo para vaciarse. 
+La simulación reveló que el caudal de entrada $Q_{ent}$ varía significativamente con la intensidad de la precipitación, mientras que el caudal de salida $Q_{sal}$ depende directamente de la capacidad de la bomba y el desnivel $\Delta H$. 
+
+En situaciones de baja precipitación pero de larga duración, como las lluvias de 3, 6 y 12 horas, el modelo arrojó los valores de volumen más elevados. Esto se debe a que la acumulación de agua se da de manera continua y sostenida. La entrada constante de agua, incluso a baja intensidad, supera la capacidad de desagote de la bomba durante periodos prolongados, lo que lleva a mayores volúmenes de agua acumulada.
+
+Mientras que en condiciones de alta precipitación y corta duración, como las lluvias de 5, 10 y 15 minutos, se observan los valores de volumen más bajos. Esto se debe a que estas lluvias provocan una entrada de agua muy intensa pero breve. La bomba de desagote puede manejar el pico de entrada de agua de manera eficiente, dado que la duración es limitada y no permite una acumulación significativa de agua en el sótano.
+
+La bomba tiene una capacidad máxima de desagote que puede manejar altos caudales por períodos cortos. En cambio, durante lluvias prolongadas, la capacidad de desagote puede no ser suficiente para compensar la entrada continua de agua. 
+
+En el caso específico de la lluvia de 72 horas, la intensidad de lluvia es tan baja que el caudal de entrada $Q_{ent}$ nunca supera el caudal de salida $Q_{sal}$. Esto resulta en que el volumen de agua en el sótano se mantiene en cero o en valores negativos. Esto significa que cualquier agua que entre en el sistema es desagotada inmediatamente. La bomba de desagote es capaz de manejar completamente el caudal de entrada, desagotando el agua de manera eficiente y manteniendo el volumen de agua en el sótano en cero. 
+
 
 ### Punto B
 Ahora, nos encontramos ante el desafío de redimensionar la bomba adoptando un nuevo valor para la variable $Q_{max}$ para que la altura del agua sobre el piso del sótano jamás exceda los $0,25m$ para ninguna de las precipitaciones presentes en la tabla brindada. 
@@ -299,8 +308,7 @@ Al probar esto con cada una de las intensidades a través de esta función:
 ![Código Q max](./assets/funcionQmax.jpg)
 
 
-Se llega a la que conclusión de que para lograr que la altura de agua sobre el piso del sótano no exceda los $0,25m$ para ninguna de las precipitaciones de la tabla se necesita un $Q_{max} >= 32$.
-
+Se llega a la que conclusión de que para lograr que la altura de agua sobre el piso del sótano no exceda los $0,25m$ para ninguna de las precipitaciones de la tabla se necesita un $Q_{max} >= 32$. Así, el sistema tiene la capacidad suficiente para drenar el agua de manera eficiente, incluso durante las precipitaciones más intensas registradas en la tabla, ya que la bomba puede manejar el flujo de agua entrante de manera adecuada.
 
 ### Punto C
 
@@ -318,14 +326,14 @@ y $h = 30 min$
 
 ![Punto C h=30min](./assets/Modelo%2060%20min,%20con%20h%20=%2030%20min%20Punto%20C.png)
 
-Corroboramos que Euler es de orden 1...
 
-Comparamos los resultados obtenidos usando diferentes tamanos de paso h y analizamos el error en relacion con la solucion obtenida con el metodo de runge-kutta de orden 2, considerado como la solucion "exacta". Los resultados mostraron que el error global disminuye en proporcion al tamano del paso, confirmando que el metodo de Euler es efectivamente de primer orden.
-Ademas, se puede observar que las diferencias entre las soluciones de Euler y RK2 son pequenas para pasos de tiempo pequenos, y aumentan significativamente al incrementar el tamano del paso, lo cual es consistente con el comportamiento esperado de un primer orden.
+Al comparar los resultados obtenidos utilizando diferentes tamaños de paso $h$, hemos examinado el error en relación con la solución obtenida mediante el método de Runge-Kutta de segundo orden, considerado como la solución "exacta". Los resultados destacan una disminución proporcional y lineal del error global con respecto al tamaño del paso, lo que confirma la naturaleza de primer orden del método de Euler. <br>
+
+Además, es notable que las disparidades entre las soluciones de Euler y RK2 son insignificantes para pasos de tiempo reducidos, pero aumentan significativamente al incrementar el tamaño del paso. Este comportamiento es coherente con las expectativas de un método de primer orden. <br>
 
 ### Punto D
 
-#### Conclusiones <br>
+#### Conclusiones finales <br>
 
 En este trabajo práctico se abordó la resolución numérica de un problema físico de gran relevancia: el dimensionamiento de una bomba de desagote en un edificio con sótano, afectado por lluvias intensas. A continuación, se detallan las conclusiones principales derivadas del análisis y la modelación realizados: <br>
 
