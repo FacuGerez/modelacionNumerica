@@ -61,7 +61,7 @@ Y también se nos brinda el siguiente cuadro:
 
 #### Aclaraciones pertinentes:
 - El padrón utilizado para llevar a cabo todas las cuentas a lo largo de todo este informe es $109566$.
-- El valor de $h$ (el intervalo de tiempo) está siempre calculado en horas.
+- El valor de $h$ (el intervalo de tiempo) también es llamado $\Delta t$.
 - Las mediciones físicas siempre se encuentran en $m$ (metros) y se realizarán las cuentas necesarias para realizar el pasaje de unidades de los datos brindados en otras unidades (como la $I$ en $mm/h$ o la $A_{terr}$ en $ha$)
 
 
@@ -70,13 +70,13 @@ En una primera instancia, nuestro objetivo es correr el modelo para la precipita
 
 $\frac{\mathrm{d} V}{\mathrm{d} t} = Q_{ent} = I  A_{terr}$
 
-Teniendo como dato $A_{terr} = 17.32m ∗ \frac{109566}{3000}m = 632,56104m^2$ y $V_{(t=0)} = 0$, aplicamos el método de Euler explícito utilizando un intervalo de tiempo $h = 0,1$. 
+Teniendo como dato $A_{terr} = 17.32m ∗ \frac{109566}{3000}m = 632,56104m^2$ y $V_{(t=0)} = 0$, aplicamos el método de Euler explícito utilizando un intervalo de tiempo $\Delta t = 0,1$. 
 
 $V_{n+1} = V_{n} + h * (\frac{85 * 632,56104}{1000})$
 
-(Dividimos por $1000$ para que la intensidad de lluvia, que se nos da en $mm/h$, nos quede en $m/h$)
+(Dividimos por $1000$ para que la intensidad de lluvia, que se nos da en $mm/h$, nos quede en $mm/h$)
 
-Iterando hasta el minuto 60, es decir $h = 1$, obtenemos que el volumen de agua en el sótano es igual a $53,7676884m^2$ al alcanzar la hora.
+Iterando hasta el minuto 60, obtenemos que el volumen de agua en el sótano es igual a $53,7676884m^2$ al alcanzar la hora.
 
 Al tener un $Q_{ent}$ con valores constantes, el crecimiento del volumen de agua en el sótano en función del tiempo nos termina quedando lineal.
 
@@ -140,7 +140,7 @@ Este planteo nos arrojó los siguientes resultados:
 
 
 #### <u>Lluvia de 5 minutos</u>
-Intensidad = $2414$ $m/h$ <br>
+Intensidad = $241,4$ $mm/h$ <br>
 Duración = $5/60$ $h$ <br>
 
 Resultado: tarda $2,25$ $h$ en vaciarse.
@@ -151,7 +151,7 @@ Resultado: tarda $2,25$ $h$ en vaciarse.
 
 
 #### <u>Lluvia de 10 minutos</u>
-Intensidad = $1907$ $m/h$ <br>
+Intensidad = $190,7$ $mm/h$ <br>
 Duración = $1/6$ $h$ <br>
 
 Resultado: tarda $3,4667$ $h$ en vaciarse.
@@ -160,7 +160,7 @@ Resultado: tarda $3,4667$ $h$ en vaciarse.
 ![Modelo 10 min](./assets/Modelo%2010%20minutos.png)
 
 #### <u>Lluvia de 15 minutos</u>
-Intensidad = $162,6$ $m/h$ <br>
+Intensidad = $162,6$ $mm/h$ <br>
 Duración = $1/4$ $h$ <br>
 
 Resultado: tarda $4,3667$ $h$ en vaciarse.
@@ -169,7 +169,7 @@ Resultado: tarda $4,3667$ $h$ en vaciarse.
 ![Modelo 15 min](./assets/Modelo%2015%20minutos.png)
 
 #### <u>Lluvia de 30 minutos</u>
-Intensidad = $119,6$ $m/h$ <br>
+Intensidad = $119,6$ $mm/h$ <br>
 Duración = $1/2$ $h$ <br>
 
 Resultado: tarda $6,2667$ $h$ en vaciarse.
@@ -178,7 +178,7 @@ Resultado: tarda $6,2667$ $h$ en vaciarse.
 ![Modelo 30 min](./assets/Modelo%2030%20minutos.png)
 
 #### <u>Lluvia de 60 minutos</u>
-Intensidad = $85$ $m/h$ <br>
+Intensidad = $85,0$ $mm/h$ <br>
 Duración = $1$ $h$ <br>
 
 Resultado: tarda $8,8$ $h$ en vaciarse.
@@ -187,7 +187,7 @@ Resultado: tarda $8,8$ $h$ en vaciarse.
 ![Modelo 60 min](./assets/Modelo%2060%20minutos.png)
 
 #### <u>Lluvia de 3 horas</u>
-Intensidad = $41,7$ $m/h$ <br>
+Intensidad = $41,7$ $mm/h$ <br>
 Duración = $3$ $h$ <br>
 
 Resultado: tarda $13,4$ $h$ en vaciarse.
@@ -196,7 +196,7 @@ Resultado: tarda $13,4$ $h$ en vaciarse.
 ![Modelo 3 horas](./assets/Modelo%203%20horas.png)
 
 #### <u>Lluvia de 6 horas</u>
-Intensidad = $26,4$ $m/h$ <br>
+Intensidad = $26,4$ $mm/h$ <br>
 Duración = $6$ $h$ <br>
 
 Resultado: tarda $17,8$ $h$ en vaciarse.
@@ -205,7 +205,7 @@ Resultado: tarda $17,8$ $h$ en vaciarse.
 ![Modelo 6 horas](./assets/Modelo%206%20horas.png)
 
 #### <u>Lluvia de 12 horas</u>
-Intensidad = $16,7$ $m/h$ <br>
+Intensidad = $16,7$ $mm/h$ <br>
 Duración = $12$ $h$ <br>
 
 Resultado: tarda $23,9$ $h$ en vaciarse.
@@ -214,7 +214,7 @@ Resultado: tarda $23,9$ $h$ en vaciarse.
 ![Modelo 12 horas](./assets/Modelo%2012%20horas.png)
 
 #### <u>Lluvia de 24 horas</u>
-Intensidad = $10,9$ $m/h$ <br>
+Intensidad = $10,9$ $mm/h$ <br>
 Duración = $24$ $h$ <br>
 
 Resultado: tarda $33,3$ $h$ en vaciarse.
@@ -223,7 +223,7 @@ Resultado: tarda $33,3$ $h$ en vaciarse.
 ![Modelo 24 horas](./assets/Modelo%2024%20horas.png)
 
 #### <u>Lluvia de 72 horas</u>
-Intensidad = $5,2$ $m/h$ <br>
+Intensidad = $5,2$ $mm/h$ <br>
 Duración = $72$ $h$ <br>
 
 Resultado: tarda $0$ $h$ en vaciarse, nunca se llena.
@@ -263,28 +263,28 @@ Si buscamos aproximar a $V$ asumiendo a $Q_{ent}$ y $Q_{sal}$ como constantes, p
 
 <div style="text-align: center">
 
-$V = h*(Q_{ent} - Q_{sal})$
+$V = h *(Q_{ent} - Q_{sal})$
 </div>
 
 Nos termina quedando que: 
 
 <div style="text-align: center">
 
-$h*(Q_{ent} - Q_{sal}) < 18,7489$
+$h *(Q_{ent} - Q_{sal}) < 18,7489$
 </div>
 
 Lo cual es igual a:
 
 <div style="text-align: center">
 
-$h*((\frac{C*I*A}{1000}) - (Q_{max}\sqrt{\frac{\Delta H_{max} - \Delta H}{\Delta H_{max} - \Delta H_{min}}})) < 18,7489$
+$h *((\frac{C*I*A}{1000}) - (Q_{max}\sqrt{\frac{\Delta H_{max} - \Delta H}{\Delta H_{max} - \Delta H_{min}}})) < 18,7489$
 </div>
 
 Como lo que queremos es maximizar es el $Q_{sal}$ buscamos que  $\sqrt{\frac{\Delta H_{max} - \Delta H}{\Delta H_{max} - \Delta H_{min}}} = 1$ así obtenemos el $Q_{max}$, por lo tanto nos queda:
 
 <div style="text-align: center">
 
-$h*(\frac{C*I*A}{1000} - Q_{max}) < 18,7489$
+$h *(\frac{C*I*A}{1000} - Q_{max}) < 18,7489$
 </div>
 
 El mayor valor posible para nuestro $Q_{ent}$ se da cuando nuestra $C$ es igual $0,9$. En nuestro caso, el valor de $A_{terr}$ es de $632,56104m^2$. 
@@ -300,7 +300,7 @@ Lo que nos deja:
 
 <div style="text-align: center">
 
-$(\frac{0,9 * I * 632,56104}{1000} - \frac{18,7489}{h}) < Q_{max}$
+$(\frac{0,9 * I * 632,56104}{1000} - \frac{18,7489}{\Delta t}) < Q_{max}$
 </div>
 
 Al probar esto con cada una de las intensidades a través de esta función:
@@ -314,26 +314,26 @@ Se llega a la que conclusión de que para lograr que la altura de agua sobre el 
 
 Se nos pide ahora discretizar las ecuaciones 1 y 6 con el método de Runge-Kutta de orden 2, considerando esta solución como “exacta”. Luego, debemos correr este modelo para la precipitación de 60 min con el método de Runge-Kutta de orden 2, y luego con Euler con dos pasos de tiempo distintos. Además, debemos verificar que Euler es de orden 1 analizando la diferencia con la solución “exacta”, utilizando siempre el $Q_{max}$ obtenido anteriormente en el punto B. 
 
-Decidimos correr el modelo primero con un $h = 1 min$ y notamos que los valores de Runge-Kutta y Euler eran bastantes similares, con diferencias bastante pequeñas:
+Decidimos correr el modelo primero con un $\Delta t = 1/60 h$ y notamos que los valores de Runge-Kutta y Euler eran bastantes similares, con diferencias bastante pequeñas:
 
 ![Punto C h=1min](./assets/Modelo%2060%20minutos%20con%20h%20=%201%20min%20Punto%20C.png)
 
-Para poder ver errores más grandes corrimos nuevamente el modelo pero ahora utilizando $h = 10 min$:
+Para poder ver errores más grandes corrimos nuevamente el modelo pero ahora utilizando $\Delta t = 1/6 h$:
 
 ![Punto C h=10min](./assets/Modelo%2060%20minutos%20con%20h%20=%2010%20min%20Punto%20C.png)
 
-y $h = 30 min$
+y $\Delta t = 1/2h$
 
 ![Punto C h=30min](./assets/Modelo%2060%20min,%20con%20h%20=%2030%20min%20Punto%20C.png)
 
 
 Al comparar los resultados obtenidos utilizando diferentes tamaños de paso $h$, hemos examinado el error en relación con la solución obtenida mediante el método de Runge-Kutta de segundo orden, considerado como la solución "exacta". Los resultados destacan una disminución proporcional y lineal del error global con respecto al tamaño del paso, lo que confirma la naturaleza de primer orden del método de Euler. <br>
 
-Cuando comparamos los errores relativos con un paso de tiempo $h = 10 min$ vamos que son linealmente proporcionales a los obtenidos cuando $h = 30 min$. Es decir, se cumple que teniendo $\epsilon_{1}$ y $\epsilon_{2}$ para pasos de tiempo $\Delta t_{1}$ y $\Delta t_{2} = \Delta t_{1} / 3 $, encontramos que:
+Cuando comparamos los errores relativos con un paso de tiempo $\Delta t = 1/60 h$ vamos que son linealmente proporcionales a los obtenidos cuando $\Delta t = 1/2 h$. Es decir, se cumple que teniendo $\epsilon_{1}$ y $\epsilon_{2}$ para pasos de tiempo $\Delta t_{1}$ y $\Delta t_{2} = \Delta t_{1} / 3 $, encontramos que:
 
 $\frac{\epsilon_{2}}{\epsilon_{1}} \approx \frac{\Delta t_2}{\Delta t_1} = \frac{\Delta t_{1} / 3}{\Delta t_1} =  \frac{1}{3}$
 
-Como esto se cumple y el error se reduce aproximadamente a un tercio cuando reducimos el paso de tiempo a un tercio, se confirma que el método de Euler es de orden 1. Lo mismo ocurre cuando comparamos $h = 1 min$ con $h = 30 min$, solo que esta vez:
+Como esto se cumple y el error se reduce aproximadamente a un tercio cuando reducimos el paso de tiempo a un tercio, se confirma que el método de Euler es de orden 1. Lo mismo ocurre cuando comparamos $\Delta t = 1/60h$ con $\Delta t = 1/2h$, solo que esta vez:
 
 $\frac{\epsilon_{2}}{\epsilon_{1}} \approx \frac{\Delta t_2}{\Delta t_1} = \frac{\Delta t_{1} / 30}{\Delta t_1} =  \frac{1}{30}$
 
