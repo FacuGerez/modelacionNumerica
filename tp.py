@@ -63,6 +63,26 @@ def main():
         for tk in tiempo:# [5min,10min,15min,30min,1h,3h,6h,12h,24h,72h]
             NewQmax = max(NewQmax, ((0.9*cons["I"][tk]*cons["Aterr"]*(1/1000)) - (0.25*cons["Asot"]/tk))) #aproximadamente
         NewQmax = int(NewQmax)+2
+        """
+    NewQmax = float("inf")
+    for tk in tiempo:# [5min,10min,15min,30min,1h,3h,6h,12h,24h,72h]
+        h = 1/60 * (tk if tk > 1 else 1)
+        i = 0
+        Vn = 0
+        Cn = cons["C0"]
+        NewQmax = max(NewQmax, ((Cn*cons["I"][tk]*cons["Aterr"]*(1/1000)) - (0.25*cons["Asot"]/h))/math.sqrt((cons["Hmax"] - H(Vn))/(cons["Hmax"]-cons["Hmin"]))) #aproximadamente
+        while Vn >= 0 and i >= 0: #corta la iteracion cuando Vn es menor a 0 osea q se vacio
+            t = h*i # Aca se calcula el tiempo desde t=0 hasta t= 0+h*i donde h avanza de a 1 minuto
+            NewV = _euler_Exp(Vn, t, lambda _,y: (Qent(Cn,tk)- Qsal(cons["Qmax"],y)) if t<tk else (0 - Qsal(cons["Qmax"],y)), h) # Aca se hace el euler paso a paso de la ecuacion 1
+            NewC = _euler_Exp(Cn, t, lambda _,y: C(Vn,y), h) # Aca se hace el euler paso a paso de la ecuacion 6
+            if NewV <= 0.25*cons["Asot"]:
+                NewQmax = abs(min(NewQmax,((Cn*cons["I"][tk]*cons["Aterr"]*(1/1000)) - (((0.25*cons["Asot"])-Vn)/h))/math.sqrt((cons["Hmax"] - H(Vn))/(cons["Hmax"]-cons["Hmin"]))))
+            Vn = NewV
+            Cn = NewC
+            i+=1
+        print(NewQmax)
+    print(NewQmax)
+        """
 
         #-----------------------B1--------------------------------
 
