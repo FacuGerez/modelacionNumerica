@@ -86,9 +86,9 @@ Al tener un $Q_{ent}$ con valores constantes, el crecimiento del volumen de agua
 
 Entonces, se puede llegar a la conclusión de que nuestro $Q_{ent}$ puede calcularse simplemente multiplicando nuestra intensidad de lluvia ($I$) por el $A_{terr}$, es decir:
 
-$\frac{I_{60min} * A_{terr}}{1000} * \Delta t = 53,7676884m^2$
+$\frac{I_{60min} * A_{terr}}{1000} * \Delta t = 53,7676884m^3$
 
-$\frac{85 \frac{m}{h} * 632,56104m^2}{1000} * 1h = 53,7676884m^2$
+$\frac{85 \frac{m}{h} * 632,56104m^2}{1000} * 1h = 53,7676884m^3$
 
 que como podemos observar nos devuelve el mismo valor obtenido anteriormente a través del método de Euler.
 
@@ -192,7 +192,7 @@ Resultado: tarda $6,2667$ $h$ en vaciarse.
 Intensidad = $85,0$ $mm/h$ <br>
 Duración = $1$ $h$ <br>
 
-Resultado: tarda $8,8$ $h$ en vaciarse.
+Resultado: tarda $8,76$ $h$ en vaciarse.
 
 
 ![Modelo 60 min](./assets/Modelo%2060%20minutos.png)
@@ -201,7 +201,7 @@ Resultado: tarda $8,8$ $h$ en vaciarse.
 Intensidad = $41,7$ $mm/h$ <br>
 Duración = $3$ $h$ <br>
 
-Resultado: tarda $13,4$ $h$ en vaciarse.
+Resultado: tarda $13,35$ $h$ en vaciarse.
 
 
 ![Modelo 3 horas](./assets/Modelo%203%20horas.png)
@@ -219,7 +219,7 @@ Resultado: tarda $17,8$ $h$ en vaciarse.
 Intensidad = $16,7$ $mm/h$ <br>
 Duración = $12$ $h$ <br>
 
-Resultado: tarda $23,9$ $h$ en vaciarse.
+Resultado: tarda $23,8$ $h$ en vaciarse.
 
 
 ![Modelo 12 horas](./assets/Modelo%2012%20horas.png)
@@ -228,7 +228,7 @@ Resultado: tarda $23,9$ $h$ en vaciarse.
 Intensidad = $10,9$ $mm/h$ <br>
 Duración = $24$ $h$ <br>
 
-Resultado: tarda $33,3$ $h$ en vaciarse.
+Resultado: tarda $33,2$ $h$ en vaciarse.
 
 
 ![Modelo 24 horas](./assets/Modelo%2024%20horas.png)
