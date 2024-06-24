@@ -18,4 +18,5 @@ También se adjuntan los links a las planillas de excel utilizadas:
 
 - Punto A1: https://docs.google.com/spreadsheets/d/1vj48Y-24QbQP785wQRaix6H4Qo6T77qpMnTrJvGmZGE/edit#gid=1715510165
 - Punto A2: https://docs.google.com/spreadsheets/d/1OU_MDB37RU9yZ30wlzTmxJLFlrmxAzBnkbrqkb8Y_Yw/edit#gid=2046308792
+- Punto B: https://docs.google.com/spreadsheets/d/1y9Qas3qv4whF_MyApPC6BmM-21maGxDjYZ-05WV9btg/edit#gid=541784924
 - Punto C: https://docs.google.com/spreadsheets/d/1YrTkKe9JYq5L2NKsIQy20TapzBFLrjCC1nyRH8hgmkQ/edit#gid=34972770

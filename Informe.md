@@ -291,36 +291,29 @@ Lo cual es igual a:
 
 <div style="text-align: center">
 
-$h *((\frac{C*I*A}{1000}) - (Q_{max}\sqrt{\frac{\Delta H_{max} - \Delta H}{\Delta H_{max} - \Delta H_{min}}})) < 18,7489m^3$
+$h *((\frac{C*I*A_{terr}}{1000}) - (Q_{max}\sqrt{\frac{\Delta H_{max} - \Delta H}{\Delta H_{max} - \Delta H_{min}}})) < 18,7489m^3$
+
+
+$Q_{max} > \frac{\frac{C*I*A_{terr}}{1000} - \frac{18,7489m^3}{h}}{\sqrt{\frac{\Delta H_{max} - \Delta H}{\Delta H_{max} - \Delta H_{min}}}}$
 </div>
 
-Como lo que queremos es maximizar es el $Q_{sal}$ buscamos que  $\sqrt{\frac{\Delta H_{max} - \Delta H}{\Delta H_{max} - \Delta H_{min}}} = 1$ así obtenemos el $Q_{max}$, por lo tanto nos queda:
+Como queremos que $H$ sea como máximo $0,25m$, nos queda:
+
+$\Delta H = H_{s} - H = 3,5m - 0,25m = 3,25m$ <br>
+
+Reemplazando con los valores que tenemos:
 
 <div style="text-align: center">
 
-$h *(\frac{C*I*A}{1000} - Q_{max}) < 18,7489m^3$
+$Q_{max} > \frac{\frac{C*I*632,56104m^2}{1000} - \frac{18,7489m^3}{h}}{\sqrt{\frac{4m - 3,25m}{4m - 1m}}}$
+
+$Q_{max} > \frac{\frac{C*I*632,56104m^2}{1000} - \frac{18,7489m^3}{h}}{0,5}$
+
 </div>
 
-Al observar el modelo y correrlo en el punto A2 pudimos apreciar que el mayor valor posible para nuestra $C$ es igual $0,9$ y que por mas que siga corriendo el modelo, este tiende a estancarse en $0,9$. Esto nos dejaría que nuestro $Q_{ent}$ máximo es:
+Aplicamos esta cuenta con cada una de las intensidades. Como es una aproximacion a V, este resultado no es exacto pero se llega a la que conclusión de que para lograr que la altura de agua sobre el piso del sótano no exceda los $0,25m$ en ninguna de las precipitaciones de la tabla se necesita aproximadamente un $Q_{max} > 32,5$. 
 
-<div style="text-align: center">
-
-$Q_{ent} = \frac{0,9 * I * 632,56104m^2}{1000}$
-</div>
-
-Lo que nos deja:
-
-<div style="text-align: center">
-
-$(\frac{0,9 * I * 632,56104m^2}{1000} - \frac{18,7489m^3}{\Delta t}) < Q_{max}$
-</div>
-
-Al probar esto con cada una de las intensidades a través de esta función:
-
-![Código Q max](./assets/funcionQmax.jpg)
-
-
-Como es una aproximacion a V, este resultado no es exacto pero se llega a la que conclusión de que para lograr que la altura de agua sobre el piso del sótano no exceda los $0,25m$ en ninguna de las precipitaciones de la tabla se necesita un $Q_{max} > 31$. Al no ser exacto y correr este modelo con dicho $Q_{max}$ observamos que el exacto necesario era $Q_{max} >= 32$. Así, el sistema tiene la capacidad suficiente para drenar el agua de manera eficiente, incluso durante las precipitaciones más intensas registradas en la tabla, ya que la bomba puede manejar el flujo de agua entrante de manera adecuada.
+Así, el sistema tiene la capacidad suficiente para drenar el agua de manera eficiente, incluso durante las precipitaciones más intensas registradas en la tabla, ya que la bomba puede manejar el flujo de agua entrante de manera adecuada.
 
 ### Punto C
 
