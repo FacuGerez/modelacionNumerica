@@ -297,10 +297,6 @@ $h *((\frac{C*I*A_{terr}}{1000}) - (Q_{max}\sqrt{\frac{\Delta H_{max} - \Delta H
 $Q_{max} > \frac{\frac{C*I*A_{terr}}{1000} - \frac{18,7489m^3}{h}}{\sqrt{\frac{\Delta H_{max} - \Delta H}{\Delta H_{max} - \Delta H_{min}}}}$
 </div>
 
-Como queremos que $H$ sea como máximo $0,25m$, nos queda:
-
-$\Delta H = H_{s} - H = 3,5m - 0,25m = 3,25m$ <br>
-
 Reemplazando con los valores que tenemos:
 
 <div style="text-align: center">
@@ -311,9 +307,9 @@ $Q_{max} > \frac{\frac{C*I*632,56104m^2}{1000} - \frac{18,7489m^3}{h}}{0,5}$
 
 </div>
 
-Aplicamos esta cuenta con cada una de las intensidades. Como es una aproximacion a V, este resultado no es exacto pero se llega a la que conclusión de que para lograr que la altura de agua sobre el piso del sótano no exceda los $0,25m$ en ninguna de las precipitaciones de la tabla se necesita aproximadamente un $Q_{max} > 32,5$. 
+Aplicamos esta cuenta con cada una de las intensidades, considerando $Q_{ent}$ y $Q_{sal}$ como variables. Como es una aproximacion a V, este resultado no es exacto pero se llega a la que conclusión de que para lograr que la altura de agua sobre el piso del sótano no exceda los $0,25m$ en ninguna de las precipitaciones de la tabla se necesita aproximadamente un $Q_{max} > 32,5m^3/h$. Este máximo se alcanza con el modelo de $1$ hora.
 
-Así, el sistema tiene la capacidad suficiente para drenar el agua de manera eficiente, incluso durante las precipitaciones más intensas registradas en la tabla, ya que la bomba puede manejar el flujo de agua entrante de manera adecuada.
+Con este nuevo valor de $Q_{max}$ el sistema tiene la capacidad suficiente para drenar el agua de manera eficiente, incluso durante las precipitaciones más intensas registradas en la tabla, ya que la bomba puede manejar el flujo de agua entrante de manera adecuada, sin exceder los $0,25m$.
 
 ### Punto C
 
